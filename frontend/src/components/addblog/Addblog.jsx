@@ -32,7 +32,7 @@ export const Addblog = () => {
       // console.log(res);
       const token = localStorage.getItem("authToken");
       const res = await axios.post(
-        "http://localhost:3004/api/blog", // correct route
+        `${import.meta.env.VITE_API_URL}/api/blog`, // correct route
         formData,
         {
           headers: {
@@ -59,7 +59,7 @@ export const Addblog = () => {
 
   const getAllCategoery = async () => {
     try {
-      const catRes = await axios.get("http://localhost:3004/api/categories");
+      const catRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/categories`);
       // console.log(catRes);
       setCate(catRes.data.categories);
     } catch (err) {

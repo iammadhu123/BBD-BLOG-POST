@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./contact.css"
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -29,7 +30,7 @@ export const Contact = () => {
     const saveFormData = (e) => {
         e.preventDefault()
         console.log(data);   // Full Stack Developer ( Data send to backend )
-        axios.post("http://localhost:3004/contact", data)
+        axios.post(`${BASE_URL}/contact`, data)
             .then((res) => {
                 // console.log(res);
                 if (res.status === 201) {

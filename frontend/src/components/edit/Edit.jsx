@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -18,19 +19,19 @@ export const Edit = () => {
 
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get("http://localhost:3004/contact/" + id)
+        axios.get(`${BASE_URL}/contact/${id}`)
             .then((res) => {
                 // console.log(res);
                 setState(res.data)
 
             })
 
-    }, [])
+    }, [id])
 
     const updateFormData = (e) => {
         e.preventDefault()
         // console.log(state);
-        axios.put("http://localhost:3004/contact/" + id, state)
+        axios.put(`${BASE_URL}/contact/${id}`, state)
             .then((res) => {
                 console.log(res);
                 if (res.status === 200) {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./dashobard.css";
 import { Link } from "react-router-dom";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const Dashboard = () => {
   const [cate, setCate] = useState([]);
@@ -11,7 +11,7 @@ export const Dashboard = () => {
   const [blogdata, setBlogdata] = useState([]);
   const getAllCate = async () => {
     try {
-      const catRes = await axios.get("http://localhost:3004/api/categories");
+      const catRes = await axios.get(`${BASE_URL}/api/categories`);
       setCate(catRes.data.categories);
     } catch (err) {
       console.log(err);
@@ -20,7 +20,7 @@ export const Dashboard = () => {
 
   const getAllBlogData = async () => {
     try {
-      const blogRes = await axios.get("http://localhost:3004/api/blog");
+      const blogRes = await axios.get(`${BASE_URL}/api/blog`);
       // console.log(blogRes);
       setBlogdata(blogRes.data.record);
     } catch (err) {
@@ -31,9 +31,7 @@ export const Dashboard = () => {
   const getDataByCategory = async (c_name) => {
     // alert(c_name)
     try {
-      const cateRes = await axios.get(
-        "http://localhost:3004/api/blog/" + c_name,
-      );
+      const cateRes = await axios.get(`${BASE_URL}/api/blog/${c_name}`);
       console.log(cateRes);
       setBlogdata(cateRes.data.cateresponse);
     } catch (err) {}

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -12,7 +13,7 @@ export const Contactlist = () => {
     // const [course, setCourse] = useState("Python")
 
     const getAllData = () => {
-        axios.get("http://localhost:3004/contact")
+        axios.get(`${BASE_URL}/contact`)
             .then((res) => {
                 // console.log(res);
                 console.log(res.data);
@@ -55,7 +56,7 @@ export const Contactlist = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete("http://localhost:3004/contact/" + id)
+                axios.delete(`${BASE_URL}/contact/${id}`)
                     .then((response) => {
                         console.log(response);
                         if (response.status === 200) {
@@ -107,7 +108,7 @@ export const Contactlist = () => {
                             {
                                 record.map((item, index) =>
                                     <tr>
-                                        <td>{item.id}</td>
+                                        <td>{item._id}</td>
                                         <td>{item.f_name}</td>
                                         <td>{item.l_name}</td>
                                         <td>{item.email_id}</td>
@@ -115,9 +116,9 @@ export const Contactlist = () => {
                                         <td>{item.message}</td>
                                         <td>
                                             {/* <input type="submit" value="Edit" className='btn btn-primary' />&nbsp; */}
-                                            <Link to={`/edit/${item.id}`} className='btn btn-success'>Edit</Link>&nbsp;&nbsp;
+                                            <Link to={`/edit/${item._id}`} className='btn btn-success'>Edit</Link>&nbsp;&nbsp;
                                             {/* <input type="submit" value="Delete" className='btn btn-danger' /> */}
-                                            <a href="#" className='btn btn-danger' onClick={() => { deleteData(item.id) }}>Delete</a>
+                                            <a href="#" className='btn btn-danger' onClick={() => { deleteData(item._id) }}>Delete</a>
                                         </td>
                                     </tr>
 

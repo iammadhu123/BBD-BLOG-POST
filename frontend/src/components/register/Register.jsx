@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './register.css'
 import axios from 'axios'
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 import toast, { Toaster } from 'react-hot-toast';
 
 export const Register = () => {
