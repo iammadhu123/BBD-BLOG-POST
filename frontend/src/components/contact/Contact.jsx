@@ -51,7 +51,7 @@ export const Contact = () => {
             <div className="row" style={{ marginTop: "5%" }}>
                 <Toaster />
                 <div className="col-md-4">
-                    <img src="gallery/con.jpg" alt="" className='my_img' />
+                    <img src="gallery/contact.jpg" alt="" className='my_img' />
                 </div>
                 <div className="col-md-8">
                     <div className="my_title">Get in touch</div>

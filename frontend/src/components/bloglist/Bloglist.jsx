@@ -106,7 +106,7 @@ export const Bloglist = () => {
 
                     <td>
                       {/* <button className="btn btn-info btn-sm">View</button> */}
-                      <button className="btn btn-warning btn-sm">Edit</button>{" "}
+                      <button className="btn btn-warning btn-sm" onClick={() => navigate(`/edit-blog/${item._id}`)}>Edit</button>{" "}
                       &nbsp;
                       <a
                         className="btn btn-danger btn-sm"
