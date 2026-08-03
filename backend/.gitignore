@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Uploads (Multer local storage)
+uploads/
+
+# Temporary files
+tmp/
+temp/
+
+# Database local files
+data/
+
+# Editor files
+.vscode/
+!.vscode/extensions.json
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Nodemon
+.nodemon*
+
+# Local configuration
+*.local
